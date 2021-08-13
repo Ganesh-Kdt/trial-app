@@ -8,8 +8,9 @@ function App() {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get("/api")
-      .then((res) => setData(res.message));
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
   }, []);
 
   return (
